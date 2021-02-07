@@ -50,4 +50,9 @@ public class Ball {
         }
         this.canvas.repaint();
     }
+
+    public  void hide(Graphics2D g2) {
+        System.out.println("HIDE: '" + Thread.currentThread().getName() + "' ball");
+        g2.clearRect(x,y,X_SIZE,Y_SIZE);
+    }
 }

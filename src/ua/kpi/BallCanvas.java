@@ -21,4 +21,11 @@ public class BallCanvas extends JPanel {
             b.draw(g2);
         }
     }
+
+    public void remove (Ball b, Graphics2D g2) {
+        b.hide(g2);
+        this.balls.remove(b);
+    }
+
+
 }

@@ -11,6 +11,12 @@ public class BounceFrame extends JFrame {
     public static final int WIDTH=450;
     public static final int HEIGHT=350;
 
+    JPanel buttonPanel = new JPanel();
+    JButton buttonStart=new JButton("Start");
+    JButton buttonStop=new JButton("Stop");
+
+    JLabel bottomLabel = new JLabel("0");
+
     public BounceFrame() {
         this.setSize(WIDTH,HEIGHT);
         this.setTitle("Bonce program");
@@ -20,21 +26,21 @@ public class BounceFrame extends JFrame {
         Container content = this.getContentPane();
         content.add(this.canvas, BorderLayout.CENTER);
 
-        JPanel buttonPanel = new JPanel();
         buttonPanel.setBackground(Color.lightGray);
 
-        JButton buttonStart=new JButton("Start");
-        JButton buttonStop=new JButton("Stop");
+        bottomLabel.setVerticalAlignment(JLabel.BOTTOM);
+        bottomLabel.setHorizontalAlignment(JLabel.CENTER);
+
+        buttonPanel.add(bottomLabel);
 
         buttonStart.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Ball b = new Ball(canvas);
                 canvas.add(b);
-                BallThread thread = new BallThread(b);
+                BallThread thread = new BallThread(b, canvas);
                 thread.start();
                 System.out.println("BUTTON_START: thread name ='" +thread.getName() + "'");
-
             }
         });
 
@@ -49,5 +55,9 @@ public class BounceFrame extends JFrame {
         buttonPanel.add(buttonStop);
 
         content.add(buttonPanel, BorderLayout.SOUTH);
+    }
+
+   public void  changeLabelText( int counter) {
+        this.bottomLabel.setText(counter + "");
     }
 }
