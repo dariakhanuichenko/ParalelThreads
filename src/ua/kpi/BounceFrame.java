@@ -10,12 +10,14 @@ public class BounceFrame extends JFrame {
     private BallCanvas canvas;
     public static final int WIDTH=450;
     public static final int HEIGHT=350;
+   public  static int  counter = 0;
 
     JPanel buttonPanel = new JPanel();
     JButton buttonStart=new JButton("Start");
     JButton buttonStop=new JButton("Stop");
 
-    JLabel bottomLabel = new JLabel("0");
+    public static  JLabel bottomLabel = new JLabel("Counter: 0");
+
 
     public BounceFrame() {
         this.setSize(WIDTH,HEIGHT);
@@ -57,7 +59,8 @@ public class BounceFrame extends JFrame {
         content.add(buttonPanel, BorderLayout.SOUTH);
     }
 
-   public void  changeLabelText( int counter) {
-        this.bottomLabel.setText(counter + "");
+   public static void  changeLabelText() {
+         counter++;
+        bottomLabel.setText("Counter: " +counter);
     }
 }

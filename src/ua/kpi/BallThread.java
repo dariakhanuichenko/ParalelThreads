@@ -8,7 +8,6 @@ public class BallThread extends Thread {
     private Ball b;
     private ActionListener actionListener;
 
-
     public BallThread(Ball ball, BallCanvas canvas) {
         b = ball;
         actionListener = new Listener(canvas);

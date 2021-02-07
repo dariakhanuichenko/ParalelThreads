@@ -14,7 +14,8 @@ public class Listener implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         Ball b = (Ball) e.getSource();
-       canvas.remove(b, (Graphics2D) canvas.getGraphics());
+        canvas.remove(b, (Graphics2D) canvas.getGraphics());
+        BounceFrame.changeLabelText();
     }
 }
 
